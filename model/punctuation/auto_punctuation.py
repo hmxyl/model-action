@@ -7,7 +7,7 @@ def auto_punctuation():
     """
     标点回填
     """
-    with open("D:\\Workspace\\test_model\\punctuation\\auto_punctuation_clean.txt", 'r') as file:
+    with open("D:\\Workspace\\test_model\\punctuation\\auto_punctuation_clean.txt", 'r', encoding='utf-8') as file:
         test_text = file.readline()
     model = AutoModel(model="ct-punc", model_revision="v2.0.4")
     res = model.generate(input=test_text)
@@ -20,12 +20,12 @@ def clean_punctuation():
     """
     清理标点
     """
-    with open("D:\\Workspace\\test_model\\punctuation\\auto_punctuation.txt", 'r') as file:
+    with open("D:\\Workspace\\test_model\\punctuation\\auto_punctuation.txt", 'r', encoding='utf-8') as file:
         test_text = file.readline()
     # 删除中文标点符号
     punctuation = r"[，。？！：；‘’“”（）【】《》、!#$%&'()*+,-./:;<=>?@[\]^_`{|}~\"]"
     test_text_clean = re.sub(punctuation, "", test_text)
-    with open("D:\\Workspace\\test_model\\punctuation\\auto_punctuation_clean.txt", 'w') as file_clean:
+    with open("D:\\Workspace\\test_model\\punctuation\\auto_punctuation_clean.txt", 'w', encoding='utf-8') as file_clean:
         file_clean.write(test_text_clean)
 
 

@@ -7,9 +7,8 @@ def test_auto_paragraph():
     """
     拆分段落
     """
-    # file_path = "D:\\Workspace\\test_model\\paragraph\\auto_paragraph_origin.txt"
-    file_path = "D:\\Workspace\\test_model\\punctuation\\auto_punctuation_result.txt"
-    with open(file_path, 'r') as file:
+    file_path = "D:\\Workspace\\test_model\\paragraph\\auto_paragraph_origin.txt"
+    with open(file_path, 'r', encoding='utf-8') as file:
         paragraph_words = file.readline()
     p = pipeline(
         task=Tasks.document_segmentation,
