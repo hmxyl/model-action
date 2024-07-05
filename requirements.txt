@@ -8,3 +8,4 @@ scenedetect
 loguru
 scikit-image
 torchaudio
+transformers

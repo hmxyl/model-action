@@ -2,21 +2,19 @@ from modelscope.outputs import OutputKeys
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 
-
-def test_auto_paragraph():
+if __name__ == '__main__':
     """
-    拆分段落
+    拆分段落: https://modelscope.cn/models/iic/nlp_bert_document-segmentation_chinese-base/summary
     """
     file_path = "D:\\Workspace\\test_model\\paragraph\\auto_paragraph_origin.txt"
     with open(file_path, 'r', encoding='utf-8') as file:
         paragraph_words = file.readline()
-    p = pipeline(
+    print(paragraph_words)
+    output = pipeline(
         task=Tasks.document_segmentation,
         model='damo/nlp_bert_document-segmentation_chinese-base')
-    result = p(documents=paragraph_words)
+    result = output(paragraph_words)
     with open("D:\\Workspace\\test_model\\paragraph\\auto_paragraph_result.txt", 'w') as file_result:
-        file_result.write(result[OutputKeys.TEXT])
-
-
-if __name__ == '__main__':
-    test_auto_paragraph()
+        line = result[OutputKeys.TEXT]
+        file_result.write(line)
+        print(line)
