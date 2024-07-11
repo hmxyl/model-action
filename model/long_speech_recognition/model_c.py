@@ -24,5 +24,5 @@ if __name__ == '__main__':
         device=device
     )
 
-    rec_result = inference_pipeline(file_path.audio_file_path)
+    rec_result = inference_pipeline(file_path.audio_file_path_3)
     print(rec_result)
