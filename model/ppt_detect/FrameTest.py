@@ -3,8 +3,9 @@ import os
 import shutil
 import unittest
 
+from model.speech import file_path
 from util import detect_util
-from util.detect_util import DetestUtil
+from model.ppt_detect.util.detect_util import DetestUtil
 
 frame_fragment_file = 'D:\\Workspace\\test_model\\ppt\\课程资源.txt'
 ppt_test_right_folder = 'D:\\Workspace\\test_model\\ppt\\课程资源_PPT\\'
@@ -56,7 +57,7 @@ class FrameTest(unittest.TestCase):
                 print(str(start_num) + " ---------------- " + str(static_percent))
 
     def test_get_ppt_frame(self):
-        video_path = 'D:\\Workspace\\test_model\\ppt\\课程资源.mp4'
+        video_path = file_path.ppt_file_path
         ppt_fragment = getFrameFragment()
         ppt_frame_num = DetestUtil().get_ppt_frame_num(ppt_fragment, video_path)
         # 保存图片
